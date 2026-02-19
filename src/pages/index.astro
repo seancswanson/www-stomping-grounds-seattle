@@ -1,27 +1,368 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead
+			title="Stomping Grounds Seattle"
+			description="Seattle-based shuffling org hosting shuffle battles, exchanges, and seshes."
+		/>
 	</head>
 	<body>
-		<Header />
 		<main>
-			<div>
-				<h1>Stomping Grounds</h1>
-				<h2>
-					Seattle-based org hosting shuffle battles, exchanges, and
-					seshes.
-				</h2>
-				<span>EST.2025</span>
+			<!-- Hero -->
+			<section class="hero">
+				<h1>STOMPING<br />GROUNDS</h1>
+				<p class="city">
+					<span>SEATTLE</span>
+					<img src="/globe.svg" class="globe-icon" alt="" aria-hidden="true" />
+					<span>WORLDWIDE</span>
+				</p>
+			</section>
+
+			<div class="checker-divider" aria-hidden="true">
+				<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+				<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
 			</div>
+
+			<!-- About -->
+			<section class="about">
+				<div class="about-left">
+					<p>
+						Seattle's premier shuffle collective — bringing together dancers of all
+						levels for battles, exchanges, and community seshes.
+					</p>
+					<span class="est">EST. 2025</span>
+				</div>
+				<img src="/lightning-block-v2.png" alt="" aria-hidden="true" class="about-img" />
+			</section>
+
+			<div class="checker-divider checker-divider--reverse" aria-hidden="true">
+				<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+				<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+			</div>
+
+			<!-- Founders -->
+			<section class="founders">
+				<h2>MEET THE FOUNDERS</h2>
+				<div class="founders-grid">
+					<div class="x-stack" aria-hidden="true">
+						<span>X</span>
+						<span>X</span>
+						<span>X</span>
+						<span>X</span>
+					</div>
+					<div class="founder-card">
+						<img class="founder-photo" src="/mae.webp" alt="Mae" />
+						<h3>MAE</h3>
+						<p class="handle">@maemae.xo_</p>
+						<p class="bio">Bio coming soon.</p>
+					</div>
+					<div class="founder-card">
+						<img class="founder-photo" src="/michal.webp" alt="Michal" />
+						<h3>MICHAL</h3>
+						<p class="handle">@michal_woz</p>
+						<p class="bio">3 years deep into shuffling. Software dev by day, battler by night. Love cyphers, casual meetups, and community events. Off the floor, you can find me working on my aquarium.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Instagram Feed -->
+			<section class="instagram">
+				<h2>FOLLOW US</h2>
+				<p class="ig-handle">
+					<a
+						href="https://instagram.com/stompinggrounds.seattle"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						@stompinggrounds.seattle
+					</a>
+				</p>
+				<!-- Drop Instagram feed embed code here -->
+				<div class="ig-feed-placeholder">
+					<span>instagram feed</span>
+				</div>
+			</section>
 		</main>
+
 		<Footer />
 	</body>
 </html>
+
+<style>
+	main {
+		position: relative;
+		z-index: 1;
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 0 2rem;
+		width: 100%;
+	}
+
+	main::before {
+		content: "";
+		position: fixed;
+		inset: 0;
+		z-index: -1;
+		pointer-events: none;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+		background-repeat: repeat;
+		background-size: 200px 200px;
+		opacity: 0.15;
+	}
+
+	section {
+		padding: 3rem 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	section:last-child {
+		border-bottom: none;
+	}
+
+	/* ── Hero ── */
+	.hero {
+		text-align: center;
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+		border-bottom: none;
+	}
+
+	/* ── Checker divider ── */
+	.checker-divider {
+		display: grid;
+		grid-template-columns: repeat(8, 20px);
+		grid-template-rows: repeat(2, 20px);
+		width: fit-content;
+	}
+
+	.checker-divider--reverse {
+		margin-left: auto;
+	}
+
+	.checker-divider span {
+		display: block;
+	}
+
+	/* Row 1 black (odd): 1 3 5 7 | Row 2 black (even): 10 12 14 16 */
+	.checker-divider span:nth-child(-n+8):nth-child(odd),
+	.checker-divider span:nth-child(n+9):nth-child(even) {
+		background: #000;
+	}
+
+	/* Row 1 white (even): 2 4 6 8 | Row 2 white (odd): 9 11 13 15 */
+	.checker-divider span:nth-child(-n+8):nth-child(even),
+	.checker-divider span:nth-child(n+9):nth-child(odd) {
+		background: #fff;
+	}
+
+	/* Reversed: Row 1 starts white, Row 2 starts black */
+	.checker-divider--reverse span:nth-child(-n+8):nth-child(odd),
+	.checker-divider--reverse span:nth-child(n+9):nth-child(even) {
+		background: #fff;
+	}
+
+	.checker-divider--reverse span:nth-child(-n+8):nth-child(even),
+	.checker-divider--reverse span:nth-child(n+9):nth-child(odd) {
+		background: #000;
+	}
+
+	.est {
+		display: block;
+		font-size: 0.75rem;
+		letter-spacing: 0.15em;
+		font-weight: 700;
+		color: var(--accent);
+		text-transform: uppercase;
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+
+	h1 {
+		font-size: clamp(4rem, 10vw, 7rem);
+		font-weight: 900;
+		line-height: 0.82;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
+		margin: 0 0 1rem;
+		background: linear-gradient(175deg, #ffffff 40%, #d8d8d8 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.city {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.75rem;
+		font-size: 0.8rem;
+		letter-spacing: 0.15em;
+		font-weight: 700;
+		color: rgba(255, 255, 255, 0.75);
+		text-transform: uppercase;
+		margin: 0;
+	}
+
+	.globe-icon {
+		width: 1.5rem;
+		height: 1.5rem;
+		filter: invert(1) opacity(0.75);
+		border-radius: 0;
+	}
+
+	/* ── About ── */
+	.about {
+		display: grid;
+		grid-template-columns: 7fr 3fr;
+		gap: 2rem;
+		align-items: center;
+		border-bottom: none;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.about-left {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	.about p {
+		font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+		font-weight: 600;
+		line-height: 1.25;
+		margin: 0;
+		color: #fff;
+	}
+
+	.about-img {
+		width: 100%;
+		height: auto;
+		border-radius: 0;
+	}
+
+	/* ── Founders ── */
+	.founders h2,
+	.instagram h2 {
+		font-size: 0.7rem;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: var(--accent);
+		margin-bottom: 1.5rem;
+		font-weight: 700;
+	}
+
+	.founders-grid {
+		display: grid;
+		grid-template-columns: auto 1fr 1fr;
+		gap: 2rem;
+		align-items: start;
+	}
+
+	.x-stack {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.x-stack span {
+		font-size: 4rem;
+		font-weight: 900;
+		line-height: 1;
+		color: #000;
+		-webkit-text-stroke: 1.5px #fff;
+		paint-order: stroke fill;
+	}
+
+	.founder-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.founder-photo {
+		width: 100%;
+		max-width: 260px;
+		height: 340px;
+		object-fit: contain;
+		object-position: bottom;
+		border-radius: 0;
+	}
+
+	.founder-card h3 {
+		font-size: 1.4rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		margin: 0.25rem 0 0;
+	}
+
+	.handle {
+		font-size: 0.8rem;
+		letter-spacing: 0.1em;
+		color: var(--accent);
+		margin: 0;
+	}
+
+	.bio {
+		color: rgba(255, 255, 255, 0.75);
+		font-size: 0.9rem;
+		margin: 0;
+		line-height: 1.6;
+	}
+
+	/* ── Instagram ── */
+	.ig-handle {
+		margin-bottom: 1.5rem;
+	}
+
+	.ig-handle a {
+		font-size: 1.1rem;
+		letter-spacing: 0.08em;
+		color: #fff;
+		text-decoration: none;
+		border-bottom: 1px solid var(--accent);
+		padding-bottom: 3px;
+		transition: color 0.15s ease;
+	}
+
+	.ig-handle a:hover {
+		color: var(--accent);
+	}
+
+	.ig-feed-placeholder {
+		min-height: 320px;
+		border: 1px dashed rgba(255, 255, 255, 0.12);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: rgba(255, 255, 255, 0.15);
+		font-size: 0.7rem;
+		letter-spacing: 0.3em;
+		text-transform: uppercase;
+	}
+
+	/* override global img border-radius */
+	img.founder-photo {
+		border-radius: 0;
+	}
+
+	@media (max-width: 640px) {
+		.hero {
+			padding-top: 3rem;
+			padding-bottom: 3rem;
+		}
+
+		.founders-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.founder-photo {
+			max-width: 100%;
+		}
+	}
+</style>
