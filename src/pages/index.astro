@@ -58,14 +58,44 @@ import Footer from "../components/Footer.astro";
 					<div class="founder-card">
 						<img class="founder-photo" src="/mae.webp" alt="Mae" />
 						<h3>MAE</h3>
-						<p class="handle">@maemae.xo_</p>
+						<p class="handle"><a href="https://instagram.com/maemae.xo_" target="_blank" rel="noopener noreferrer">@maemae.xo_</a></p>
 						<p class="bio">Bio coming soon.</p>
 					</div>
 					<div class="founder-card">
 						<img class="founder-photo" src="/michal.webp" alt="Michal" />
 						<h3>MICHAL</h3>
-						<p class="handle">@michal_woz</p>
+						<p class="handle"><a href="https://instagram.com/michal_woz" target="_blank" rel="noopener noreferrer">@michal_woz</a></p>
 						<p class="bio">3 years deep into shuffling. Software dev by day, battler by night. Love cyphers, casual meetups, and community events. Off the floor, you can find me working on my aquarium.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Battlers -->
+			<section class="battlers">
+				<h2>STOMPING GROUNDS BATTLERS</h2>
+				<div class="battlers-layout">
+					<div class="battlers-flex">
+						<div class="battler-card">
+							<img class="battler-photo" src="/lena.png" alt="Lena" />
+							<h3>LENA</h3>
+							<p class="handle"><a href="https://instagram.com/lenaflows" target="_blank" rel="noopener noreferrer">@lenaflows</a></p>
+						</div>
+						<div class="battler-card">
+							<img class="battler-photo" src="/michelle.png" alt="Michelle" />
+							<h3>MICHELLE</h3>
+							<p class="handle"><a href="https://instagram.com/bomb_chelles" target="_blank" rel="noopener noreferrer">@bomb_chelles</a></p>
+						</div>
+						<div class="battler-card">
+							<img class="battler-photo" src="/leela.png" alt="Leela" />
+							<h3>LEELA</h3>
+							<p class="handle"><a href="https://instagram.com/pupz.whatever" target="_blank" rel="noopener noreferrer">@pupz.whatever</a></p>
+						</div>
+					</div>
+					<div class="x-stack" aria-hidden="true">
+						<span>X</span>
+						<span>X</span>
+						<span>X</span>
+						<span>X</span>
 					</div>
 				</div>
 			</section>
@@ -82,9 +112,25 @@ import Footer from "../components/Footer.astro";
 						@stompinggrounds.seattle
 					</a>
 				</p>
-				<!-- Drop Instagram feed embed code here -->
-				<div class="ig-feed-placeholder">
-					<span>instagram feed</span>
+				<div class="ig-grid">
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
+					<a href="https://instagram.com/stompinggrounds.seattle" target="_blank" rel="noopener noreferrer"></a>
 				</div>
 			</section>
 		</main>
@@ -94,6 +140,17 @@ import Footer from "../components/Footer.astro";
 </html>
 
 <style>
+	@keyframes fadeUp {
+		from {
+			opacity: 0;
+			transform: translateY(18px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
 	main {
 		position: relative;
 		z-index: 1;
@@ -101,6 +158,8 @@ import Footer from "../components/Footer.astro";
 		margin: 0 auto;
 		padding: 0 2rem;
 		width: 100%;
+		box-sizing: border-box;
+		overflow-x: hidden;
 	}
 
 	main::before {
@@ -122,6 +181,26 @@ import Footer from "../components/Footer.astro";
 
 	section:last-child {
 		border-bottom: none;
+	}
+
+	/* ── Entrance animations ── */
+	@media (prefers-reduced-motion: no-preference) {
+		.city,
+		.checker-divider,
+		.about,
+		.founders,
+		.battlers,
+		.instagram {
+			animation: fadeUp 0.6s ease both;
+		}
+
+		.city                          { animation-delay: 0.1s; }
+		.checker-divider:nth-of-type(1){ animation-delay: 0.2s; }
+		.about                         { animation-delay: 0.3s; }
+		.checker-divider:nth-of-type(2){ animation-delay: 0.4s; }
+		.founders                      { animation-delay: 0.5s; }
+		.battlers                      { animation-delay: 0.6s; }
+		.instagram                     { animation-delay: 0.7s; }
 	}
 
 	/* ── Hero ── */
@@ -203,14 +282,15 @@ import Footer from "../components/Footer.astro";
 		font-size: 0.8rem;
 		letter-spacing: 0.15em;
 		font-weight: 700;
-		color: rgba(255, 255, 255, 0.75);
+		color: rgba(255, 255, 255, 0.25);
 		text-transform: uppercase;
 		margin: 0;
+		text-shadow: 0px 0px 1px white;
 	}
 
 	.globe-icon {
-		width: 1.5rem;
-		height: 1.5rem;
+		width: 3.5rem;
+		height: 3.5rem;
 		filter: invert(1) opacity(0.75);
 		border-radius: 0;
 	}
@@ -250,7 +330,7 @@ import Footer from "../components/Footer.astro";
 	/* ── Founders ── */
 	.founders h2,
 	.instagram h2 {
-		font-size: 0.7rem;
+		font-size: 1rem;
 		letter-spacing: 0.15em;
 		text-transform: uppercase;
 		color: var(--accent);
@@ -308,11 +388,76 @@ import Footer from "../components/Footer.astro";
 		margin: 0;
 	}
 
+	.handle a {
+		color: var(--accent);
+		text-decoration: none;
+	}
+
+	.handle a:hover {
+		text-decoration: underline;
+	}
+
 	.bio {
 		color: rgba(255, 255, 255, 0.75);
 		font-size: 0.9rem;
 		margin: 0;
 		line-height: 1.6;
+	}
+
+	.founders {
+		border-bottom: none;
+	}
+
+	/* ── Battlers ── */
+	.battlers h2 {
+		font-size: 1rem;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: var(--accent);
+		margin-bottom: 1.5rem;
+		font-weight: 700;
+		text-align: right;
+	}
+
+	.battlers-layout {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 2rem;
+		align-items: start;
+	}
+
+	.battlers-flex {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		gap: 2rem;
+	}
+
+	.battlers-flex .battler-card {
+		flex: 1;
+	}
+
+	.battler-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		align-items: center;
+		text-align: center;
+	}
+
+	.battler-photo {
+		width: 100%;
+		height: 160px;
+		object-fit: contain;
+		object-position: bottom;
+		border-radius: 0;
+	}
+
+	.battler-card h3 {
+		font-size: 1rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		margin: 0.25rem 0 0;
 	}
 
 	/* ── Instagram ── */
@@ -334,16 +479,43 @@ import Footer from "../components/Footer.astro";
 		color: var(--accent);
 	}
 
-	.ig-feed-placeholder {
-		min-height: 320px;
-		border: 1px dashed rgba(255, 255, 255, 0.12);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: rgba(255, 255, 255, 0.15);
-		font-size: 0.7rem;
-		letter-spacing: 0.3em;
-		text-transform: uppercase;
+	.ig-grid {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: 3px;
+	}
+
+	.ig-grid a {
+		display: block;
+		aspect-ratio: 1;
+		overflow: hidden;
+		background: rgba(255, 255, 255, 0.06);
+		opacity: 0.7;
+		transition: opacity 0.15s ease;
+	}
+
+	.ig-grid a:hover {
+		opacity: 1;
+	}
+
+	.ig-grid img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 0;
+		display: block;
+	}
+
+	@media (max-width: 768px) {
+		.ig-grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.ig-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 
 	/* override global img border-radius */
@@ -351,10 +523,60 @@ import Footer from "../components/Footer.astro";
 		border-radius: 0;
 	}
 
+	/* ── Tablet ── */
+	@media (max-width: 768px) {
+		.about {
+			grid-template-columns: 1fr;
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+		}
+
+		.about-img {
+			order: -1;
+			max-width: 200px;
+		}
+
+		.founders-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.x-stack {
+			display: none;
+		}
+
+		.battlers-layout {
+			grid-template-columns: 1fr;
+		}
+
+		.battlers-layout .x-stack {
+			display: none;
+		}
+	}
+
+	/* ── Mobile ── */
 	@media (max-width: 640px) {
+		main {
+			padding: 0 1rem;
+		}
+
 		.hero {
 			padding-top: 3rem;
 			padding-bottom: 3rem;
+		}
+
+		.city {
+			flex-wrap: wrap;
+			gap: 0.4rem;
+		}
+
+		.about {
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+		}
+
+		.about-img {
+			order: -1;
+			max-width: 160px;
 		}
 
 		.founders-grid {
@@ -363,6 +585,15 @@ import Footer from "../components/Footer.astro";
 
 		.founder-photo {
 			max-width: 100%;
+			height: 260px;
+		}
+
+		.battlers-flex .battler-card {
+			flex: 0 0 100%;
+		}
+
+		.battler-photo {
+			height: 200px;
 		}
 	}
 </style>
