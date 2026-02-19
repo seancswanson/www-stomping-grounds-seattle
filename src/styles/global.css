@@ -54,6 +54,7 @@ body {
 	color: #fff;
 	font-size: 20px;
 	line-height: 1.7;
+	scrollbar-gutter: stable;
 }
 main {
 	width: 720px;
